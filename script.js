@@ -4,6 +4,20 @@ if (yearNode) {
   yearNode.textContent = String(new Date().getFullYear());
 }
 
+// Improve perceived load performance for image-heavy pages.
+const allImages = document.querySelectorAll("img");
+allImages.forEach((img) => {
+  if (!img.hasAttribute("loading")) {
+    img.setAttribute("loading", "lazy");
+  }
+  if (!img.hasAttribute("decoding")) {
+    img.setAttribute("decoding", "async");
+  }
+  if (!img.hasAttribute("fetchpriority") && img.getAttribute("loading") === "lazy") {
+    img.setAttribute("fetchpriority", "low");
+  }
+});
+
 // Activate tabbed drink sections on the alcohols page.
 const tabGroups = document.querySelectorAll("[data-tabs]");
 tabGroups.forEach((group) => {
