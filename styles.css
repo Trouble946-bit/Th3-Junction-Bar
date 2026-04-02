@@ -1,0 +1,423 @@
+:root {
+  --bg: #0f1714;
+  --panel: rgba(24, 37, 32, 0.78);
+  --panel-border: rgba(245, 225, 166, 0.18);
+  --text: #f7f0d8;
+  --muted: #d7cba5;
+  --accent: #f3b94c;
+  --accent-strong: #ffd06a;
+  --shadow: 0 12px 34px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(243, 185, 76, 0.18), transparent 35%),
+    radial-gradient(circle at 90% 30%, rgba(158, 80, 35, 0.25), transparent 30%),
+    linear-gradient(145deg, #0d1512, #17221d 55%, #0e1613);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.index-page {
+  background:
+    linear-gradient(145deg, rgba(7, 12, 11, 0.9), rgba(10, 16, 14, 0.94)),
+    url("images/Junction Bar 3.png") center/62% no-repeat,
+    #050707;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 5vw;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(10, 15, 13, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 50;
+}
+
+.brand {
+  font-family: "Copperplate", "Papyrus", fantasy;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: 220ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: #17120a;
+  background: var(--accent);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+main {
+  width: min(1120px, 90vw);
+  margin: 1.8rem auto 3rem;
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(243, 185, 76, 0.11), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  padding: clamp(1.2rem, 4vw, 2.2rem);
+  box-shadow: var(--shadow);
+  animation: rise 550ms ease-out;
+}
+
+.hero-slideshow {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(280px, 45vw, 390px);
+}
+
+.hero-slides,
+.hero-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slides {
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 900ms ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  animation: hero-pan 7s ease-in-out infinite alternate;
+}
+
+.hero-shade {
+  z-index: 1;
+  background: linear-gradient(130deg, rgba(6, 8, 10, 0.68), rgba(24, 15, 8, 0.52));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.hero.compact {
+  padding: clamp(1rem, 3.2vw, 1.8rem);
+}
+
+.alcohols-banner {
+  background:
+    linear-gradient(135deg, rgba(12, 8, 5, 0.62), rgba(38, 19, 8, 0.52)),
+    url("images/16-Sunrise-Malawi-lake.webp") center/cover no-repeat;
+  min-height: 220px;
+}
+
+.tag {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  color: var(--accent-strong);
+}
+
+h1,
+h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+h1 {
+  margin: 0.6rem 0;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+}
+
+.cards,
+.contact-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  animation: rise 700ms ease-out;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--accent-strong);
+}
+
+.whiskey-card {
+  background:
+    linear-gradient(135deg, rgba(10, 8, 8, 0.72), rgba(41, 20, 9, 0.58)),
+    url("images/Whiskeys.jpg") center/cover no-repeat;
+}
+
+.vodka-card {
+  background:
+    linear-gradient(135deg, rgba(4, 20, 30, 0.72), rgba(11, 36, 62, 0.6)),
+    url("images/Vodka.jpg") center/cover no-repeat;
+}
+
+.gin-brandy-card {
+  background:
+    linear-gradient(135deg, rgba(8, 8, 8, 0.66), rgba(28, 20, 14, 0.58)),
+    url("images/gin n brandy logo.jpg") center/cover no-repeat;
+}
+
+.rum-card {
+  background:
+    linear-gradient(135deg, rgba(12, 8, 8, 0.74), rgba(58, 24, 8, 0.58)),
+    url("images/Rum.jpg") center/cover no-repeat;
+}
+
+.tequila-card {
+  background:
+    linear-gradient(135deg, rgba(28, 20, 6, 0.72), rgba(66, 44, 10, 0.56)),
+    url("images/Tequila.jpg") center/cover no-repeat;
+}
+
+.beer-cider-card {
+  background:
+    linear-gradient(135deg, rgba(10, 8, 8, 0.7), rgba(36, 18, 8, 0.58)),
+    url("images/beers.jpg") center/cover no-repeat;
+}
+
+.wine-card {
+  background:
+    linear-gradient(135deg, rgba(20, 8, 12, 0.74), rgba(52, 12, 24, 0.58)),
+    url("images/casket wines.jpg") center/cover no-repeat;
+}
+
+.non-alcoholic-card {
+  background:
+    linear-gradient(135deg, rgba(8, 8, 8, 0.74), rgba(20, 24, 28, 0.6)),
+    url("images/non alcoholic.webp") center/cover no-repeat;
+}
+
+.drink-tabs {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.42rem 0.85rem;
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent));
+  color: #1d1508;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.tab-panel {
+  display: block;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
+.bottle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.65rem;
+}
+
+.bottle-item {
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255, 240, 210, 0.08), rgba(0, 0, 0, 0.24));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.7rem 0.4rem;
+}
+
+.bottle-item-soft {
+  background: linear-gradient(180deg, rgba(248, 226, 180, 0.18), rgba(41, 28, 14, 0.35));
+}
+
+.bottle-item p {
+  margin: 0.45rem 0 0;
+  font-size: 0.88rem;
+}
+
+.drink-price {
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.bottle-photo {
+  width: 44px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.35));
+}
+
+.bottle-photo-green {
+  width: 50px;
+  height: 106px;
+}
+
+.bottle-photo-castel {
+  width: 58px;
+  height: 122px;
+}
+
+.bottle-photo-gin {
+  width: 62px;
+  height: 146px;
+}
+
+.bottle-photo-brandy {
+  width: 58px;
+  height: 134px;
+}
+
+.bottle-photo-vodka {
+  width: 62px;
+  height: 146px;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.72rem 1.2rem;
+  text-decoration: none;
+  color: #161106;
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent));
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.cta-small {
+  padding: 0.58rem 0.95rem;
+  font-size: 0.9rem;
+}
+
+.contact-form-wrap {
+  margin-top: 1.3rem;
+}
+
+.contact-form {
+  display: grid;
+  gap: 0.55rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.26);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 0.65rem;
+}
+
+button {
+  margin-top: 0.35rem;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem;
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent));
+  color: #1d1508;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  color: rgba(247, 240, 216, 0.88);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-pan {
+  from {
+    transform: scale(1.03) translateX(-1%);
+  }
+  to {
+    transform: scale(1.08) translateX(1%);
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    width: 100%;
+  }
+}

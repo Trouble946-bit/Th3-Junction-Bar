@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Th3 Junction BaR</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Th3 Junction BaR</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="alcohols.html">Our Alcohols</a>
+      <a href="contact.html" class="active">Contact Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero compact">
+      <p class="tag">We would love to host your next evening out.</p>
+      <h1>Contact Us</h1>
+      <p>Reach out for reservations, private events, or any general inquiries.</p>
+    </section>
+
+    <section class="contact-grid">
+      <article class="card">
+        <h2>Visit Us</h2>
+        <p>123 Junction Avenue<br>Downtown District, Cityville</p>
+      </article>
+      <article class="card">
+        <h2>Call</h2>
+        <p>(+000) 123-456-7890</p>
+      </article>
+      <article class="card">
+        <h2>Email</h2>
+        <p>hello@th3junctionbar.com</p>
+      </article>
+      <article class="card">
+        <h2>Hours</h2>
+        <p>Mon-Thu: 4:00 PM - 12:00 AM<br>Fri-Sat: 4:00 PM - 2:00 AM<br>Sun: 2:00 PM - 10:00 PM</p>
+      </article>
+    </section>
+
+    <section class="contact-form-wrap" aria-label="Contact form">
+      <form class="contact-form">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="How can we help?"></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Th3 Junction BaR. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
